@@ -1,5 +1,31 @@
 import random
 import string
+import sys
+
+# --------------------------- HELP MENU ---------------------------
+
+# Check if user passed '--help' or '-h'
+if sys.argv[1:] == ["-h"] or sys.argv[1:] == ["--help"]:
+    print("\nPassword Generator Help Menu")
+    print("\nUsage: Just run the script and follow the prompts.")
+    print("You will be asked what kind of characters to include in your password(s),")
+    print("and how many passwords you want to generate.\n")
+    print("Options:")
+    print("  - Lowercase letters (a-z)")
+    print("  - Uppercase letters (A-Z)")
+    print("  - Numbers (0-9)")
+    print("  - Symbols (e.g., !, @, #, $)")
+    print("You can generate multiple passwords of any length.\n")
+    print("To exit the script, simply type 'exit' when prompted to generate more passwords.")
+    sys.exit()
+
+# Warn if unexpected argument(s) are passed
+if sys.argv[1:]:
+    print(f"\nWarning: Unexpected argument(s): {' '.join(sys.argv[1:])}")
+    print("Please run the script without extra arguments or use '--help' for usage instructions.")
+    sys.exit()
+
+# ------------------------ MAIN PROGRAM --------------------------
 
 # Function for welcome message
 def welcome_message():
@@ -18,7 +44,6 @@ def welcome_message():
     print("\nWelcome to the Password Generator! v1.0\n")
     
 welcome_message()
-
 
 # Function to ask the user a yes/no question
 def get_yes_no(prompt):
